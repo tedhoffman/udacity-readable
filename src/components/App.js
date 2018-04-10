@@ -4,12 +4,16 @@ import { fetchData } from '../utils/api'
 
 class App extends Component {
 	state = {
-
+		activeCategory: null,
+		categoriesList: [],
+		confirmDialogOpen: false,
+		newPostCategory: null,
+		newPostContent: null,
+		newPostTitle: null,
   }
 
 	componentDidMount() {
-		let x = fetchData('categories', 'GET')
-		console.log(x)
+		//let x = fetchData('categories', 'GET')
 	}
 
   render() {
@@ -19,10 +23,20 @@ class App extends Component {
 
 				<div className="sort">
 					<form>
-						<label className="display-cat">Displaying category:</label>
-						<select>
-							<option>All</option>
-						</select>
+						<div>
+							<label className="display-cat">Displaying category:</label>
+							<select className="sort-select">
+								<option>All</option>
+							</select>
+						</div>
+						<div>
+							<label className="display-sort">Sorting by:</label>
+							<select className="sort-select">
+								<option>Date</option>
+								<option>Score: High to Low</option>
+								<option>Score: Low to High</option>
+							</select>
+						</div>
 					</form>
 				</div>
 

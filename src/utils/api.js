@@ -1,4 +1,4 @@
-export function fetchData (call = '', method = 'GET') {
+export function fetchData (call = 'category', method = 'GET') {
 	let output
 	let headers = {
 		'authorization': 'asdf',
