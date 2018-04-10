@@ -53,6 +53,134 @@ table {
 
 body {
 	font-family: system-ui, sans-serif;
+	font-size: 16px;
+	line-height: 1.175em;
 	margin: 0;
 	padding: 0;
+}
+
+a,
+a:active,
+a:visited {
+	color: #2b4cad;
+}
+
+a:hover {
+	color: #162657;
+}
+
+h1 {
+	font-size: 3em;
+	font-weight: bold;
+	line-height: 1em;
+	margin: 0 0 0.7em;
+}
+
+.container {
+	margin: 0 10%;
+}
+
+.sort {
+	background: #fff;
+	font-size: 0.75em;
+	margin: 0 0 2em;
+	text-align: left;
+	width: 20em;
+}
+
+.display-cat {
+	margin: 0 0.3em 0 0;
+}
+
+.post-list {
+	margin: 0 0 1em 0;
+}
+
+.rdb-post {
+	border-bottom: 1px solid #bbb;
+	max-width: 40em;
+}
+
+.rdb-post header {
+	margin: 0 0 1.5em;
+}
+
+.rdb-post h2 {
+	font-size: 1.5em;
+	font-weight: bold;
+	line-height: 1em;
+	margin: 0 0 0.18em 0;
+}
+.rdb-post h3 {
+	font-size: 1em;
+	font-weight: normal;
+	line-height: 1em;
+}
+
+.rdb-post p {
+	line-height: 1.5;
+	margin: 0 0 1em 0;
+}
+
+.rdb-post footer {
+	display: flex;
+	margin: 1em 0;
+}
+
+.rdb-post-score {
+	padding: 0.5em 1.5em 0.5em 0;
+}
+
+a.rdb-upvote,
+a.rdb-upvote:active,
+a.rdb-upvote:visited {
+	color: #63c700;
+	padding: 0.25em;
+}
+
+a.rdb-upvote:hover {
+	background: #e0f4cc;
+	border-radius: 1em;
+	padding: 0.25em;
+}
+
+
+a.rdb-downvote,
+a.rdb-downvote:active,
+a.rdb-downvote:visited {
+	color: #ad1a1a;
+	padding: 0.25em;
+}
+
+a.rdb-downvote:hover {
+	background: #efd1d1;
+	border-radius: 1em;
+	padding: 0.25em;
+}
+
+.rdb-post-comments {
+	padding: 0.5em 1.5em 0.5em 0;
+}
+
+.rdb-post-edit {
+	background: #fff;
+	border: 1px dotted #2b4cad;
+	border-radius: 1em;
+	font-size: 0.75em;
+	padding: 0.6em 1em;
+	text-align: right;
+}
+
+.rdb-post-edit a {
+	padding: 0 0.25em;
+}
+
+.rdb-post-edit a,
+.rdb-post-edit a:active,
+.rdb-post-edit a:visited {
+	color: #2b4cad;
+}
+
+.rdb-post-edit a:hover {
+	color: #fa3e3e;
 }

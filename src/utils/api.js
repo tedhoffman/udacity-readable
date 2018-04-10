@@ -5,10 +5,12 @@ export function fetchData (call = '', method = 'GET') {
 		'content-type': 'application/json',
 	}
 
-	fetch(`http://localhost:3001/${call}`, { headers })
-		.then((response) => {
-			response.json().then((data) => {
-				return data
-		})
-	})
+	fetch(`http://localhost:3001/${call}`, { headers }).then(response =>
+			response.json().then(data => ({
+					data: data,
+					status: response.status
+			})
+		).then(res => {
+			return res.data
+	}))
 }
