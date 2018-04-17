@@ -11,13 +11,13 @@ class App extends Component {
 		newPostCategory: null,
 		newPostContent: null,
 		newPostTitle: null,
-		postCategories: []
+		postCategories: ['react', 'redux', 'udacity']
 	}
 
 	componentDidMount() {
 		async function init() {
 			var cats = await apiGetCategories()
-			console.log(cats)
+			console.log(cats.categories[0].name)
 		}
 		init()
 	}

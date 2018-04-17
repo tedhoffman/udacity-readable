@@ -1,5 +1,5 @@
 import { fetchData, postData } from '../utils/api'
-const uuidv1 = require('uuid/v1');
+const uuidv1 = require('uuid/v1')
 
 export function apiGetPosts () {
 	return fetchData('posts', 'GET')
@@ -23,7 +23,7 @@ export function apiGetPostById (id) {
 	return fetchData(`posts/${id}`, 'GET')
 }
 
-export function apiVoteById (id, option = 'upVote') {
+export function apiPostsVoteById (id, option = 'upVote') {
 	//POST /posts/:id	Used for voting on a post.	option - [String]: Either "upVote" or "downVote".
 	return postData(`posts/${id}`, 'GET')
 }
