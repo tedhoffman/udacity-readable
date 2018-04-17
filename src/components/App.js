@@ -1,32 +1,44 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchData } from '../utils/api'
+import { fetchData, postData } from '../utils/api'
+import { apiGetCategories, apiGetCategoryPosts } from '../utils/api-categories'
+import { apiGetPosts, apiMakePost, apiGetPostById, apiVoteById, apiEditPost, apiDeletePost } from '../utils/api-posts'
 
 class App extends Component {
 	state = {
 		activeCategory: null,
-		categoriesList: [],
 		confirmDialogOpen: false,
 		newPostCategory: null,
 		newPostContent: null,
 		newPostTitle: null,
-  }
-
-	componentDidMount() {
-		//let x = fetchData('categories', 'GET')
+		postCategories: []
 	}
 
-  render() {
-    return (
-      <div className="container">
-        <h1 className="App-title">Readable: All Posts</h1>
+	componentDidMount() {
+		async function init() {
+			var cats = await apiGetCategories()
+			console.log(cats)
+		}
+		init()
+	}
+
+	render() {
+		const { postCategories } = this.state
+
+		return (
+			<div className="container">
+				<h1 className="App-title">Readable: All Posts</h1>
 
 				<div className="sort">
 					<form>
 						<div>
 							<label className="display-cat">Displaying category:</label>
 							<select className="sort-select">
-								<option>All</option>
+								{postCategories.map((cat) => (
+									<option key={cat}>
+										{cat}
+									</option>
+								))}
 							</select>
 						</div>
 						<div>
@@ -58,9 +70,9 @@ class App extends Component {
 					</footer>
 				</article>
 
-      </div>
-    )
-  }
+			</div>
+		)
+	}
 }
 
 export default App;

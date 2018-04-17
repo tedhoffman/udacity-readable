@@ -1,16 +1,22 @@
-export function fetchData (call = 'category', method = 'GET') {
-	let output
+const API_URL = 'http://localhost:3001'
+const API_AUTH = 'tedudacity'
+
+export function fetchData (call, method = 'GET') {
 	let headers = {
-		'authorization': 'asdf',
+		'authorization': `${API_AUTH}`,
 		'content-type': 'application/json',
 	}
+	return fetch(`${API_URL}/${call}`, {headers, method}).then((resp) => resp.json())
+}
 
-	fetch(`http://localhost:3001/${call}`, { headers }).then(response =>
-			response.json().then(data => ({
-					data: data,
-					status: response.status
-			})
-		).then(res => {
-			return res.data
-	}))
+export function postData(call, data) {
+	return fetch(`${API_URL}/${call}`, {
+		body: JSON.stringify(data),
+		headers: {
+			'authorization': `${API_AUTH}`,
+			'content-type': 'application/json'
+		},
+		method: 'POST',
+	})
+	.then(response => response.json())
 }
