@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchData, postData } from '../utils/api'
+import ShowCategories from '../components/ShowCategories'
 import { apiGetCategories, apiGetCategoryPosts } from '../utils/api-categories'
 import { apiGetPosts, apiMakePost, apiGetPostById, apiVoteById, apiEditPost, apiDeletePost } from '../utils/api-posts'
 
@@ -11,13 +12,13 @@ class App extends Component {
 		newPostCategory: null,
 		newPostContent: null,
 		newPostTitle: null,
-		postCategories: ['react', 'redux', 'udacity']
+		postCategories: []
 	}
 
 	componentDidMount() {
 		async function init() {
-			var cats = await apiGetCategories()
-			console.log(cats.categories[0].name)
+			this.state.postCategories = await apiGetCategories()
+			console.log(this.state.postCategories.categories[0].name)
 		}
 		init()
 	}
@@ -33,13 +34,7 @@ class App extends Component {
 					<form>
 						<div>
 							<label className="display-cat">Displaying category:</label>
-							<select className="sort-select">
-								{postCategories.map((cat) => (
-									<option key={cat}>
-										{cat}
-									</option>
-								))}
-							</select>
+							<ShowCategories source={postCategories}></ShowCategories>
 						</div>
 						<div>
 							<label className="display-sort">Sorting by:</label>
